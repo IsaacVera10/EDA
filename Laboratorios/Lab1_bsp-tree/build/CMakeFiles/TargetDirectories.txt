@@ -1,0 +1,5 @@
+C:/Users/Lenovo/Desktop/UTEC/Workspace/EDA/lab-1/build/CMakeFiles/BSPTreeProject.dir
+C:/Users/Lenovo/Desktop/UTEC/Workspace/EDA/lab-1/build/CMakeFiles/run.dir
+C:/Users/Lenovo/Desktop/UTEC/Workspace/EDA/lab-1/build/CMakeFiles/clean-all.dir
+C:/Users/Lenovo/Desktop/UTEC/Workspace/EDA/lab-1/build/CMakeFiles/edit_cache.dir
+C:/Users/Lenovo/Desktop/UTEC/Workspace/EDA/lab-1/build/CMakeFiles/rebuild_cache.dir
