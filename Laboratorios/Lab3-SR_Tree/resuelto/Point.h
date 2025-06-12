@@ -5,14 +5,15 @@
 #include <cmath>
 #include <stdexcept>
 #include <random>
+#include <initializer_list>
 
-constexpr std::size_t DIM = 768; //dimensiones R^768
+constexpr std::size_t DIM = 768;
 constexpr float EPSILON = 1e-8f;
 
 class Point {
-public:
-    Point();
-    explicit Point(const std::array<float, DIM>& coordinates);
+public:    Point();
+    Point(const std::array<float, DIM>& coordinates);
+    Point(std::initializer_list<float> coords);
     
     Point  operator+ (const Point& other) const;
     Point& operator+=(const Point& other);
@@ -39,6 +40,15 @@ Point::Point() {
     coordinates_.fill(0.0f);
 }
 Point::Point(const std::array<float, DIM>& coordinates) : coordinates_(coordinates) {}
+
+Point::Point(std::initializer_list<float> coords) {
+    coordinates_.fill(0.0f);
+    std::size_t i = 0;
+    for (auto& c : coords) {
+        if (i >= DIM) break;
+        coordinates_[i++] = c;
+    }
+}
 
 
 Point Point::operator+(const Point& other) const {

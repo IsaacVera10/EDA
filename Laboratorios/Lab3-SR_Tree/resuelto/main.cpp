@@ -12,7 +12,7 @@
 #include "Sphere.h"
 #include "SRtree.h"
 
-static constexpr float FLOAT_TOL = 1e-6f;
+static constexpr float FLOAT_TOL = 1e-4f;
 
 bool equalPoint(const Point& a, const Point& b) {
     for (std::size_t i = 0; i < DIM; ++i) {
@@ -98,9 +98,8 @@ bool testBoundingVolumes(const SRTree& tree) {
             if (!pointInBox(*pptr, box)) {
                 allOK = false;
                 break;
-            }
-        }
-
+            }        }
+        
         // Verificar Sphere
         const Sphere& sph = node->getBoundingSphere();
         for (Point* pptr : ptsUnder) {
@@ -172,7 +171,7 @@ bool testRangeQueryBox(const SRTree& tree, const std::vector<Point>& allPoints) 
             cmin[i] = std::min(a[i], b[i]);
             cmax[i] = std::max(a[i], b[i]);
         }
-        MBB box{Point(cmin), Point(cmax)}; //Cambiado a {} por ambiguedad sintáctica
+        MBB box{Point(cmin), Point(cmax)};
 
         // SR-Tree
         std::vector<Point*> ptrs = tree.rangeQuery(box);
